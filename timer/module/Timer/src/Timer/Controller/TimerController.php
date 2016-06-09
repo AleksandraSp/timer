@@ -7,12 +7,24 @@ use Zend\View\Model\ViewModel;
 
 class TimerController extends AbstractActionController
 {
-  public function indexAction()
-  {
-    return new ViewModel(array(
-      'timer' => 'aleksandra',
-    ));
-  }
+
+    protected $timerTable;
+
+    public function indexAction()
+    {
+        return new ViewModel(array(
+            'timer' => $this->getTimerTable()->fetchAll(),
+        ));
+    }
+
+    public function getTimerTable(){
+        if (!$this->timerTable) {
+            $sm = $this->getServiceLocator();
+            $this->timerTable = $sm->get('Timer\Model\TimerTable');
+        }
+        return $this->timerTable;
+    }
+
   public function addAction()
   {
   }

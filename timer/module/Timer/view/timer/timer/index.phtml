@@ -4,6 +4,8 @@ $title = 'My timers';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
-<p><?php echo $this->escapeHtml($timer); ?></p>
-
-<button class="btn btn-default">ADD</button>
+<p><?php
+foreach ($timer as $key => $obj) {
+    echo $this->escapeHtml($obj->name." by ".$obj->owner);
+}
+?></p>
