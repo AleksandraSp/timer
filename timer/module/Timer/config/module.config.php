@@ -2,8 +2,8 @@
 return array(
   'controllers' => array(
     'invokables' => array(
-      'Timer\Controller\Timer' => 'Timer\Controller\TimerController',
-        'Timer\Controller\One' => 'Timer\Controller\OneController',
+      'Timer\Controller\Timer'  => 'Timer\Controller\TimerController',
+      'Timer\Controller\New'    => 'Timer\Controller\TimerCreator',
     ),
   ),
 
@@ -30,18 +30,17 @@ return array(
             'action' => 'index',
           ),
         ),
-        'one' => array(
-          'type'=> 'Segment',
-          'options' => array(
-            'route' => '/one',
-            'defaults' => array(
-                'controller' => 'Timer\Controller\One',
-                'action'     => 'index',
-            ),
+      ),
+      'new' => array(
+        'type'=> 'Segment',
+        'options' => array(
+          'route' => '/new',
+          'defaults' => array(
+              'controller' => 'Timer\Controller\New',
+              'action'     => 'index',
           ),
         ),
       ),
     ),
   ),
-
 );

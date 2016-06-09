@@ -1,8 +1,10 @@
 <?php
 namespace Timer\Controller;
-class One {
+
+class TimerCreator {
   public function indexAction()
   {
-    echo 'kkkkk';
+    //TODO:
+    echo 'Form with input fields';
   }
 }
